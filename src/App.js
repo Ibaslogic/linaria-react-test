@@ -1,25 +1,33 @@
-import logo from './logo.svg';
-import './App.css';
+import React from 'react';
+import { styled } from '@linaria/react';
+import { css } from '@linaria/core';
 
-function App() {
+const App = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <HeadingThree className={style}>Heading III</HeadingThree>
+      <Hello primary="blue">Primary color</Hello>
+      <Hello>Danger</Hello>
+      <div className={flower}>Hello world</div>
+    </>
   );
-}
-
+};
 export default App;
+
+const Hello = styled.p`
+  color: ${({ primary }) => (primary ? 'blue' : 'red')};
+`;
+
+const HeadingThree = styled.h3`
+  background-color: blue;
+  color: green;
+`;
+
+const flower = css`
+  background-color: green;
+  color: red;
+`;
+
+const style = css`
+  color: red;
+`;
